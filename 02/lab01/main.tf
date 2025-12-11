@@ -74,3 +74,4 @@ resource "aws_route_table_association" "myPubSN-RT-assoc" {
   subnet_id      = aws_subnet.myPubSN.id   # myPubSN 선택
   route_table_id = aws_route_table.myPubSN-RT.id  # myPubSN-RT 연결
 }
+
