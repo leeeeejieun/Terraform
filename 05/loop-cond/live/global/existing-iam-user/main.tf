@@ -14,9 +14,9 @@ provider "aws" {
 #   name  = var.user_names[count.index]
 # }
 
-resource "aws_iam_user" "createuser" {
-  for_each = toset(var.user_names)
-  name  = each.key
-}
+# resource "aws_iam_user" "createuser" {
+#   for_each = toset(var.user_names)
+#   name  = each.key
+# }
 
 # 확인 : tf state show 'aws_iam_user.createuser["blue"]'
