@@ -9,8 +9,14 @@ provider "aws" {
 #   name = "neo.${count.index}"
 # }
 
+# resource "aws_iam_user" "createuser" {
+#   count = length(var.user_names)
+#   name  = var.user_names[count.index]
+# }
+
 resource "aws_iam_user" "createuser" {
-  count = length(var.user_names)
-  name  = var.user_names[count.index]
+  for_each = toset(var.user_names)
+  name  = each.key
 }
 
+# 확인 : tf state show 'aws_iam_user.createuser["blue"]'
